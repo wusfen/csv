@@ -53,7 +53,7 @@ var data = [
   {id:'2', name:'Lily', age:'18'}
 ];
 
-var csv = csv(data);
+var csvStr = csv(data);
 
 // =>
 /*
