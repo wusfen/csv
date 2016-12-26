@@ -1,5 +1,5 @@
 ;
-(function(global) {
+(function() {
 
     function csv2json(data, keys) {
         keys = keys || '';
@@ -41,6 +41,7 @@
 
     function json2csv(data) {
         var csv = '';
+        var keys = [];
         for (var i = 0; i < data.length; i++) {
             var row = data[i];
             for (var ci in row) {
@@ -49,24 +50,29 @@
                     col = '"' + col.replace(/"/g, '""') + '"';
                 }
                 csv += col + ',';
+
+                // keys
+                i == 0 && keys.push(ci);
             }
             csv = csv.replace(/,$/, '\n');
         }
-        return csv.replace(/\n$/, '');
+        return keys.join(',') + '\n' + csv.replace(/\n$/, '');
     }
 
     function csv(data, keys) {
         return typeof data == 'string' ? csv2json(data, keys) : json2csv(data);
     }
 
-    // require.js || sea.js
-    if (typeof define == 'function') {
+    // export
+    if (typeof module != 'undefined') {
+        module.export = csv;
+    } else
+    if (typeof define != 'undefined' && define.cmd || define.amd) {
         define(function(require, exports, module) {
             return module.exports = csv
         });
+    } else
+    if (typeof window != 'undefined') {
+        window.csv = csv
     }
-    // node.js
-    if (typeof module != 'undefined') {
-        module.exports = csv;
-    }
-}(this));
+}());

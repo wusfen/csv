@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>json2csv</title>
+    <script src="../csv.js"></script>
+</head>
+
+<body>
+    <pre id="input">
+[
+  {
+    "id": 1,
+    "name": "Tom",
+    "age": 25
+  },
+  {
+    "id": 2,
+    "name": "Lily",
+    "age": 18
+  }
+]
+</pre> =>
+    <pre id="output"></pre>
+    <script>
+    var csvStr = csv(JSON.parse(input.innerHTML));
+
+    output.innerHTML = csvStr
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>csv2json</title>
+    <script src="../csv.js"></script>
+</head>
+
+<body>
+    <pre id="input">
+id,name,age
+1,Tom,25
+2,Lily,18
+</pre> =>
+    <pre id="output"></pre>
+    <script>
+    var json = csv(input.innerHTML.trim());
+
+    output.innerHTML = JSON.stringify(json, null, '  ')
+    </script>
+</body>
+
+</html>
