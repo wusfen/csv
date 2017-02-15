@@ -17,7 +17,7 @@
         });
 
         // split row
-        var arr = data.split(/\n(?!\r\r\r)/);
+        var arr = data.split(/\r?\n(?!\r\r\r)/);
         var json = [];
         for (var i = 0; i < arr.length; i++) {
             // split col
@@ -59,20 +59,20 @@
         return keys.join(',') + '\n' + csv.replace(/\n$/, '');
     }
 
-    function csv(data, keys) {
+    function CSV(data, keys) {
         return typeof data == 'string' ? csv2json(data, keys) : json2csv(data);
     }
 
     // export
     if (typeof module != 'undefined') {
-        module.export = csv;
+        module.export = CSV;
     } else
     if (typeof define != 'undefined' && define.cmd || define.amd) {
         define(function(require, exports, module) {
-            return module.exports = csv
+            return module.exports = CSV
         });
     } else
     if (typeof window != 'undefined') {
-        window.csv = csv
+        window.CSV = CSV
     }
 }());

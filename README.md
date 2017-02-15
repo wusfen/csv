@@ -6,7 +6,7 @@ csv.js csv2json json2csv
 
 **csv2json**
 ```javascript
-csv(string)
+CSV(string)
 ```
 ```javascript
 var data = 
@@ -14,7 +14,7 @@ var data =
 1,Tom,25
 2,Lily,18`;
 
-var json = csv(data);
+var json = CSV(data);
 
 // =>
 /*
@@ -25,14 +25,14 @@ var json = csv(data);
 */
 ```
 ```javascript
-csv(string, keys)
+CSV(string, keys)
 ```
 ```javascript
 var data = 
 `1,Tom,25
 2,Lily,18`;
 
-var json = csv(data, 'id,name,age');
+var json = CSV(data, 'id,name,age');
 
 // =>
 /*
@@ -45,7 +45,7 @@ var json = csv(data, 'id,name,age');
 
 **json2csv**
 ```javascript
-csv(array)
+CSV(array)
 ```
 ```javascript
 var data = [
@@ -53,7 +53,7 @@ var data = [
   {id:'2', name:'Lily', age:'18'}
 ];
 
-var csvStr = csv(data);
+var csv = CSV(data);
 
 // =>
 /*
