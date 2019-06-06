@@ -67,7 +67,7 @@
     if (typeof module != 'undefined') {
         module.export = CSV;
     } else
-    if (typeof define != 'undefined' && define.cmd || define.amd) {
+    if (typeof define != 'undefined' && (define.cmd || define.amd)) {
         define(function(require, exports, module) {
             return module.exports = CSV
         });
